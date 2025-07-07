@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Analytics } from '@vercel/analytics/react';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -34,6 +35,13 @@ export const metadata: Metadata = {
   other: {
     'github-repo': 'https://github.com/agenticui/agentic-ui',
   },
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico', sizes: '32x32' },
+    ],
+    apple: '/apple-touch-icon.png',
+  },
 };
 
 export default function RootLayout({
@@ -49,6 +57,7 @@ export default function RootLayout({
         <div className="relative z-10">
           {children}
         </div>
+        <Analytics />
       </body>
     </html>
   );
